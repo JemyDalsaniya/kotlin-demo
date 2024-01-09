@@ -35,8 +35,10 @@ fun controlFlow() {
     }
 
     //when example
-    var x = 4
-    var y = 5
+    val x = 1
+    val y = 5
+    val s = 42
+    val z = "42"
     when (x) {
         1 -> println("x == 1")
         2 -> println("x == 2")
@@ -51,12 +53,72 @@ fun controlFlow() {
         else -> println("x+y is odd")
     }
 
+    //when with enum example
+    val enumExample = EnumExample()
+    enumExample.runExample()
+
+    when (x) {
+        0, 1 -> println("x == 0 or x == 1")
+        else -> println("otherwise")
+    }
+
+    //This will convert z to int and check if it's same as x or not
+    when (x) {
+        z.toInt() -> println("s encodes x")
+        else -> println("s does not encode x")
+    }
+
+    //to check data type
+    println("method returns : "+hasPrefix("hello"))
+
+    val validNumbers = arrayOf(1,2,3,4)
+    when (x) {
+        in 2..10 -> println("x is in the range")
+        in validNumbers -> println("x is valid")
+        !in 10..20 -> println("x is outside the range")
+        else -> println("none of the above")
+    }
     for (i in 1..3) {
-        println(i)
-        println()
+        if ( i == 2)
+        continue
+//        println(i)
+//        println()
     }
     for (i in 6 downTo 0 step 2) {
-        println(i)
-
+//        println(i)
     }
+
+    loop@ for (i in 1..100) {
+        for (j in 1..100) {
+            if (j == 4) break@loop
+            println("i: " + i +"j: "+ j)
+        }
+    }
+
+    //implicit and explicit label example
+    explicitLabelExample()
+    implicitLabelExample()
+
 }
+
+fun hasPrefix(x: Any) = when(x) {
+    is String -> x.startsWith("he")
+    else -> false
+}
+fun implicitLabelExample() {
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return@forEach // local return to the caller of the lambda - the forEach loop
+        print(it)
+    }
+    print(" done with implicit label")
+}
+fun explicitLabelExample() {
+    listOf(1, 2, 3, 4, 5).forEach lit@{
+        if (it == 3) return@lit // local return to the caller of the lambda - the forEach loop
+        print(it)
+    }
+    print(" done with explicit label")
+}
+
+
+

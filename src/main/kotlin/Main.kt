@@ -4,6 +4,9 @@ fun main() {
     // Type checks
 //    typeCheck()
     //Control Flow
-    controlFlow()
-
+   // controlFlow()
+    //Exception handling
+//    exceptionHandling()
+    //Collections
+    collectionsExample()
 }
