@@ -34,7 +34,7 @@ fun collectionsExample() {
 
 
     //Map Example
-    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    val readOnlyJuiceMenu = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
     println(readOnlyJuiceMenu)
 
 

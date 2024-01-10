@@ -8,5 +8,5 @@ fun main() {
     //Exception handling
 //    exceptionHandling()
     //Collections
-    collectionsExample()
+//    collectionsExample()
 }
